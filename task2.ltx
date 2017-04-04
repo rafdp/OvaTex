@@ -1,0 +1,215 @@
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=1cm,footskip=0cm]{geometry}
+\setlength{\parindent}{0mm}
+\usepackage{amsmath} 
+\usepackage{scrextend}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{amssymb}
+\begin{document}
+
+\begin{center}
+
+	\Large Домашнее задание № 2\\
+	\smallskip
+	\small Раффаэле Делла Пиетра, 675
+\end{center}
+\bigskip
+\begin{addmargin}[1em]{2em}
+\textbf {Задание 1}\newline
+Сколько существует различных ожерелий из 18 бусин белого, синего и красного цветов? Ожерелья можно поворачивать и переворачивать. Ответ дать по модулю 1000. 
+\end{addmargin}
+\bigskip
+Рассмотрим, какие есть движения, переводящие бусы сами в себя. $\varphi$~---~поворот на $20^o$ по часовой стрелке, он совмещает каждую бусинку с соседней по часовой, $\sigma$~---~осевая симметрия относительно диагонали \\
+$18$-угольника, $\theta$~---~осевая симметрия относительно прямой, проходящей через середины противоположных сторон $18$-угольника. \\
+$G = \{e, \varphi^1, \varphi^2, \dotsc, \varphi^{17}, \sigma_1, \sigma_2, \dotsc, \sigma_9, \theta_1, \theta_2, \dotsc, \theta_9\} \implies |G| = 36$. \\
+Посчитаем, сколько степеней свободы выбора цвета бусин есть у каждого движения: \\
+$$
+\begin{array}{c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c}
+e & \varphi & \varphi^2 & \varphi^3  & \varphi^4  & \varphi^5  & \varphi^6  & \varphi^7  & \varphi^8  & \varphi^9  & \varphi^{10}  & \varphi^{11}  & \varphi^{12}  & \varphi^{13}  & \varphi^{14}  & \varphi^{15}  & \varphi^{16}  & \varphi^{17} & \sigma_i & \theta_i \\ \hline
+18 & 1 & 2 & 3 & 2 & 1 & 6 & 1 & 2 & 9 & 2 & 1 & 6 & 1 & 2 & 3 & 2 & 1 & 10 & 9 \\
+\end{array}
+$$
+Тогда всего различных бус $$\dfrac 1{36} (3^{18}+6\cdot3^1+6\cdot3^2+2\cdot3^3+2\cdot3^6+10\cdot3^9+9\cdot3^{10}) = 10\,781\,954 \equiv 954 \; \mod 1000$$
+
+\bigskip
+\begin{addmargin}[1em]{2em}
+\textbf {Задание 2}\newline
+Грани октаэдра красят в 6 цветов. Варианты окраски, которые можно совместить поворотом, считаются одинаковыми. Найти остаток от деления количества различных окрасок на 675.
+\end{addmargin}
+\bigskip
+Октаэдр можно получить, соединив середины смежных граней некоторого куба. Грани октаэдра тогда будут соответствовать вершинам куба, а вращения октаэдра вращениям куба. Из предыдущих задач известно, что группа поворотов куба состоит из 24 элементов. Посчитаем, сколько степеней свободы окраски вершин куба даёт каждый поворот. \\
+Поворот относительно оси, проходящей через середины граней на $90^o$ даёт 2 степени свободы. Таких поворотов 2 для каждой оси, всего осей 3. \\
+Поворот относительно той же оси на $180^o$ даёт 4 степени свободы. Таких поворотов столько же, сколько и осей, то есть 3. \\
+Поворот относительно диагонали на $120^o$ даёт 4 степени свободы. Диагоналей 4, для каждой 2 поворота.\\
+Симметрия относительно прямой, проходящей через середины двух противоположных рёбер, даёт 4 степени свободы. Всего таких осей 6. \\
+И наконец тождественное преобразование, 8 степеней свободы. \\
+Тогда всего окрасок вершин куба и соответственно граней октаэдра 
+$$
+\dfrac 1{24} (6^8+6\cdot6^2+3\cdot6^4+8\cdot6^4+6\cdot6^4) = 70911 \equiv 36 \;\mod 675
+$$
+
+\bigskip
+\begin{addmargin}[1em]{2em}
+\textbf {Задание 3}\newline
+Решить систему сравнений:
+    \[
+    \left\{
+        \begin{array}{ll}
+            x\ \equiv\ 2\ (\mathrm{mod}\ 44)\\
+            x\ \equiv\ 10\ (\mathrm{mod}\ 87)
+        \end{array} 
+    \right. 
+    \]
+\end{addmargin}
+\bigskip
+$x = 44a+2 = 87b+10 \; a, b \in \mathbb{Z}$\\ 
+$44a-87b = 8$ \\
+$44a'-87b'=1$ \\
+$\left\{\begin{array}{c}
+a' = 2 \\
+b' = 1 
+\end{array}\right.
+\implies 
+\left\{\begin{array}{c}
+a = 16 + 87t\\
+b = 8 + 44t
+\end{array}\right.
+t \in \mathbb{Z} \implies x = 44\cdot16 + 2 + 44\cdot87t = 706 + 3828t$
+\newpage
+\begin{addmargin}[1em]{2em}
+\textbf {Задание 4}\newline
+Решить систему сравнений:
+    \[
+    \left\{
+        \begin{array}{ll}
+            x\ \equiv\ 1\ (\mathrm{mod}\ 1001)\\
+            x\ \equiv\ -1\ (\mathrm{mod}\ 117)
+        \end{array}
+    \right.
+    \]
+\end{addmargin}
+\bigskip
+$\left.\begin{array}{c}
+x \equiv 1 \; \mod 1001 \implies x \equiv 1 \; \mod 13 \; \text{т.~к.} \;13 \mid 1001 \\
+x \equiv -1 \; \mod 117 \implies x \equiv -1 \; \mod 13 \; \text{т.~к.} \;13 \mid 117
+\end {array}
+\right \} \implies x = 13a+1 = 13b-1 \quad a, b \in \mathbb{Z}
+$\\
+$13(b-a) = 2$ решения не имеет, т.~к. для $b = a \quad b-a = 0$, а для $b \not = a \quad 13|b-a| \ge 13 \implies$ система не имеет решений. 
+
+\bigskip
+\begin{addmargin}[1em]{2em}
+\textbf {Задание 5}\newline
+Решить систему сравнений:
+    \[
+    \left\{
+        \begin{array}{ll}
+            x\ \equiv\ 1\ (\mathrm{mod}\ 75)\\
+            x\ \equiv\ 4\ (\mathrm{mod}\ 27)
+        \end{array}
+    \right.
+    \]
+    \end{addmargin}
+\bigskip
+$x \equiv 4 \; \mod 27 \implies x \equiv 1 \; \mod 3$ \\
+$x \equiv 1 \; \mod 75 \implies x \equiv 1 \; \mod 25$ 
+\medskip \\
+$\left\{\begin{array}{c}
+x \equiv 1 \; \mod 25 \\
+x \equiv 4 \; \mod 27
+\end {array}\right. \implies x = 25a+1 = 27b+4 \quad a, b\in\mathbb{Z} \qquad 25a-27b = 3
+$ \\
+$\left\{\begin{array}{c}
+a = 12 + 27t\\
+b = 11 + 25t
+\end{array}\right.
+t \in \mathbb{Z} \implies x = 25\cdot12 + 1 + 25\cdot27t = 301 + 675t$
+\bigskip
+\begin{addmargin}[1em]{2em}
+\textbf {Задание 6}\newline
+Решить линейное диофантово уравнение:
+        $$144x+233y=1.$$
+    \end{addmargin}
+\bigskip
+Как известно, $\begin{pmatrix}
+    1 & 1\\
+    1 & 0
+\end{pmatrix}^n = 
+\begin{pmatrix}
+    F_{n+1} & F_{n}\\
+    F_{n} & F_{n-1}
+\end{pmatrix}$ где $F_n$~---~n-e число Фибоначчи. \\
+$\det \begin{pmatrix}
+    F_{n+1} & F_{n}\\
+    F_{n} & F_{n-1}
+\end{pmatrix} = 
+\left( \det
+\begin{pmatrix}
+    1 & 1\\
+    1 & 0
+\end{pmatrix} \right) ^n = (-1)^n = F_{n+1}F_{n-1} - F_n^2$\\
+$\left.\begin{array}{c}
+89 = F_{11} \\
+144 = F_{12} \\
+233 = F_{13}
+\end{array}\right \} \implies (-1)^{12} = 1 = 233\cdot89 - 144^2 \implies 
+\left\{\begin{array}{c}
+x = -144 + 233t \\
+y = 89 - 144t
+\end{array} \right. t\in\mathbb{Z}
+$
+\bigskip
+\begin{addmargin}[1em]{2em}
+\textbf {Задание 7}\newline
+Решить линейное диофантово уравнение:
+        $$610x+987y=377.$$
+    \end{addmargin}
+\bigskip
+$987 - 610 = 377 \implies 
+\left\{\begin{array}{c}
+x = -1 + 987t \\
+y = 1 - 610t
+\end{array} \right. t\in\mathbb{Z}$
+
+\newpage
+\begin{addmargin}[1em]{2em}
+\textbf {Задание 8, 9}\newline
+Найти пару натуральных чисел с наименьшей суммой такую, что нахождение их НОД методом Евклида требует $n$ делений с остатком. \\
+Доп. Найти, используя решение прошлой задачи, $O$-асимптотику для алгоритма.
+\end{addmargin}
+\bigskip
+Рассмотрим некоторый алгоритм Евклида на числах $B > A > 0$. \\
+Пусть он приводит к результату за $k$ делений. \\
+$$
+\begin{array}{cccc}
+B & = & Aq_1+r_1 & 0<r_1<A \\
+A & = & r_1q_2+r_2 & 0<r_2<r_1 \\
+r_1 & = & r_2q_3+r_3 & 0<r_3<r_2 \\
+\cdots & & \cdots & \\
+r_{k-2} & = & r_{k-1}q_k+r_k & 0<r_k<r_{k-1} \\
+r_{k-1} & = & r_kq_{k+1}
+\end{array}
+$$ 
+$\forall i \le k \quad q_i \ge 1, \qquad q_{k+1} \ge 2$ т.~к. $r_{k-1} > r_k$. $r_{k-1} \ge 2r_{k} \ge 2$. Для всех остальных $r_{i-2} = r_{i-1}q_i+r_i \ge r_{i-1}+r_i$. \\
+$A > r_1 + r_2$. Рассмотрим числа Фибоначчи: $r_k \ge 1 = F_1$, $r_{k-1} \ge 2 = F_2,$ далее $r_{i} \ge F_{k-i+1}, A \ge F_{k+1}$.\\
+Таким образом, для алгоритма Евклида на $B>A>0$ нужно не больше сравнений по модулю, чем номер наибольшего числа Фибоначчи, меньшего $A$, без единицы. \\
+Чтобы у двух чисел было как минимум $n$ сравнений по алгоритму Евклида, меньшее из них должно быть не меньше $F_{n+1}$. На втором шаге, соответственно, нужно, чтобы $B-A$ было не меньше $F_n$ и т.~д.\\
+Наименьшие 2 числа, для которых будет $n$ сравнений, это $F_{n+1}$ и $F_{n+2}$, а их сумма будет $F_{n+3}$.
+\\
+В худшем случае алгоритм Евклида на $A$ и $B$ таких, что $A+B \ge F_{n+3}$, сделает $n$ шагов. \\
+$F_{n} = \dfrac1{\sqrt5} \left(\left(\dfrac{1+\sqrt 5}{2}\right)^{n+1} - \left(\dfrac{1-\sqrt 5}{2}\right)^{n+1}\right) = \dfrac1{\sqrt 5} (\varphi^{n+1}-\varphi^{-n-1})$ по формуле Бине. \\
+Решая обратно уравнение, получим $n+1 = \log_\varphi\frac {\sqrt 5 x + \sqrt{5x^2 + 4}}{2}$ \\
+и для нашего случая $N_{eucl}(x) = O \left(\log_\varphi\frac {\sqrt 5 x + \sqrt{5x^2 + 4}}{2} - 4\right)$ где $N_{eucl}(x)$~---~количество шагов алгоритма \\
+Евклида при $A+B = x$
+\end{document}
+
+
+
+
+
+
